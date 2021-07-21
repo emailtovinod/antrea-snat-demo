@@ -1,0 +1,12 @@
+apiVersion: crd.antrea.io/v1alpha2
+kind: ExternalIPPool
+metadata:
+    name: snat-ippool-one
+spec:
+    ipRanges:
+    - start: 10.105.18.100  ###SNAT IP
+      end: 10.105.18.100
+    - cidr: 10.105.18.0/32  ###Single IP CIDR
+    nodeSelector:
+      matchLabels:
+        network-role: snat-origin ###To select  nodes on which Antrea create the `egress` interface to assign SNAT IP

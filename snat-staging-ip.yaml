@@ -1,0 +1,13 @@
+apiVersion: crd.antrea.io/v1alpha2
+kind: Egress
+metadata:
+  name: snat-staging-ip
+spec:
+  appliedTo:
+    namespaceSelector:
+      matchLabels:
+        role: staging  ###Selcet the Namespace to which the SNAT Policy will be applied
+    podSelector:
+      matchLabels:
+        app: app-staging  ###Selcet the Pods to which the SNAT Policy will be applied
+  externalIPPool: snat-ippool-staging ###The IP Pool from which the SNAT IP will be assigned

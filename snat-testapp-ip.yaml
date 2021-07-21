@@ -1,0 +1,10 @@
+apiVersion: crd.antrea.io/v1alpha2
+kind: Egress
+metadata:
+  name: snat-testapp-ip
+spec:
+  appliedTo:
+    podSelector:
+      matchLabels:
+        app: antrea-test-app  ###Selcet the Pods to which the SNAT Policy will be applied
+  externalIPPool: snat-ippool-one ### The IP Pool from which the SNAT IP will be assigned

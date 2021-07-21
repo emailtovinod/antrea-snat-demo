@@ -1,0 +1,11 @@
+apiVersion: crd.antrea.io/v1alpha2
+kind: ExternalIPPool
+metadata:
+    name: snat-ippool-staging
+spec:
+    ipRanges:
+    - start: 10.105.18.101  ###SNAT IP
+      end: 10.105.18.101
+    - cidr: 10.105.18.0/32  ###Single IP CIDR
+    nodeSelector: {} ###All Nodes can be Egress Nodes
+      
